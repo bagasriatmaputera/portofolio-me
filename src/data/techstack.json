@@ -1,0 +1,18 @@
+[
+  { "name": "Laravel", "icon": "SiLaravel", "category": "Backend" },
+  { "name": "PHP", "icon": "SiPhp", "category": "Backend" },
+  { "name": "TypeScript", "icon": "SiTypescript", "category": "Frontend" },
+  { "name": "JavaScript", "icon": "SiJavascript", "category": "Frontend" },
+  { "name": "Vue.js", "icon": "SiVuedotjs", "category": "Frontend" },
+  { "name": "React", "icon": "SiReact", "category": "Frontend" },
+  { "name": "AngularJS", "icon": "SiAngular", "category": "Frontend" },
+  { "name": "Ionic", "icon": "SiIonic", "category": "Mobile" },
+  { "name": "MySQL", "icon": "SiMysql", "category": "Backend" },
+  { "name": "Tailwind CSS", "icon": "SiTailwindcss", "category": "Styling" },
+  { "name": "Bootstrap", "icon": "SiBootstrap", "category": "Styling" },
+  { "name": "Postman API", "icon": "SiPostman", "category": "Tools" },
+  { "name": "Git & GitHub", "icon": "SiGit", "category": "Tools" },
+  { "name": "HTML5", "icon": "SiHtml5", "category": "Frontend" },
+  { "name": "CSS3", "icon": "SiCss", "category": "Styling" },
+  { "name": "Vite", "icon": "SiVite", "category": "Tools" }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio Website",
+    "description": "Website portofolio pribadi modern dan responsif dibangun dengan React JS, Vite, dan Tailwind CSS dengan dynamic light & dark mode.",
+    "image": "/images/projects/portfolio.png",
+    "techStack": ["React", "Vite", "Tailwind CSS"],
+    "liveUrl": "#",
+    "repoUrl": "https://github.com/bagasriatmaputera/portofolio-me",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Test IT IDP React App",
+    "description": "Aplikasi antarmuka berbasis React JS dan TypeScript yang terintegrasi dengan REST API dan ter-deploy secara live.",
+    "image": "/images/projects/dashboard.png",
+    "techStack": ["React", "TypeScript", "Tailwind CSS", "Vercel"],
+    "liveUrl": "https://test-it-idp-reactjs.vercel.app",
+    "repoUrl": "https://github.com/bagasriatmaputera/test_it_idp_reactjs",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "GlowAttend App",
+    "description": "Sistem aplikasi manajemen presensi dan absensi kehadiran berbasis web dengan pencatatan data karyawan terstruktur.",
+    "image": "/images/projects/taskflow.png",
+    "techStack": ["PHP", "Laravel", "Blade", "MySQL"],
+    "liveUrl": "#",
+    "repoUrl": "https://github.com/bagasriatmaputera/glowAttendApp",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "Sistem Pakar Diagnosis Penyakit Mata",
+    "description": "Aplikasi sistem pakar berbasis inferensi penyakit untuk membantu konsultasi dan identifikasi gejala penyakit mata secara dini.",
+    "image": "/images/projects/devdocs.png",
+    "techStack": ["PHP", "Expert System", "MySQL"],
+    "liveUrl": "#",
+    "repoUrl": "https://github.com/bagasriatmaputera/sistem_pakar_penyakit_mata",
+    "featured": false
+  }
+]

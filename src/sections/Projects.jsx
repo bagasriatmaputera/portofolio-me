@@ -1,0 +1,73 @@
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ProjectCard from "../components/ProjectCard";
+import projects from "../data/projects.json";
+import { FolderGit2 } from "lucide-react";
+
+function Projects() {
+  const [filter, setFilter] = useState("all");
+
+  const displayedProjects = filter === "featured"
+    ? projects.filter((p) => p.featured)
+    : projects;
+
+  return (
+    <section id="projects" className="py-20 border-t border-primary/10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
+        >
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
+              <FolderGit2 className="w-4 h-4" />
+              <span>Portofolio Karya</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-text">
+              Proyek yang Pernah Saya Bangun
+            </h2>
+          </div>
+
+          {/* Filter Pills */}
+          <div className="inline-flex p-1 rounded-xl bg-primary/10 border border-primary/15 self-start md:self-auto">
+            <button
+              onClick={() => setFilter("all")}
+              className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 ${
+                filter === "all"
+                  ? "bg-primary text-background shadow-sm"
+                  : "text-text/70 hover:text-text"
+              }`}
+            >
+              Semua Proyek ({projects.length})
+            </button>
+            <button
+              onClick={() => setFilter("featured")}
+              className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 ${
+                filter === "featured"
+                  ? "bg-primary text-background shadow-sm"
+                  : "text-text/70 hover:text-text"
+              }`}
+            >
+              Unggulan ({projects.filter((p) => p.featured).length})
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Projects Grid with AnimatePresence */}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {displayedProjects.map((project, idx) => (
+              <ProjectCard key={project.id} {...project} index={idx} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default Projects;
