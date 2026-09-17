@@ -34,7 +34,6 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-text/70">
             <p className="flex items-center gap-1.5">
-              Dibuat dengan <Heart className="w-4 h-4 text-accent fill-accent" /> menggunakan React JS, Vite & Tailwind CSS.
             </p>
 
             <div className="flex items-center gap-6">

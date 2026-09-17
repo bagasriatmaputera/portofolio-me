@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X, Sparkles } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 function Navbar({ isDark, toggleDarkMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,24 +23,27 @@ function Navbar({ isDark, toggleDarkMode }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/85 backdrop-blur-md shadow-sm border-b border-primary/10 py-3"
-          : "bg-transparent py-5"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-background/85 backdrop-blur-md shadow-sm border-b border-primary/10 py-3"
+        : "bg-transparent py-5"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a
             href="#"
-            className="group flex items-center gap-2 text-xl font-bold tracking-tight text-primary transition-colors"
+            className="group flex items-center gap-2.5 text-lg sm:text-xl font-bold tracking-tight text-primary transition-colors"
           >
-            <span className="p-1.5 rounded-lg bg-primary text-background group-hover:bg-accent transition-colors duration-200">
-              <Sparkles className="w-4 h-4" />
-            </span>
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md overflow-hidden flex items-center justify-center p-0.5 bg-primary/10 border border-primary/20 group-hover:border-accent/50 group-hover:shadow-sm transition-all duration-200">
+              <img
+                src="/images/Brp logo.png"
+                alt="BRP Logo"
+                className="w-full h-full object-contain rounded-md"
+              />
+            </div>
             <span>
-              Bagas<span className="text-accent">.dev</span>
+              BRP<span className="text-accent">&lt;/&gt;</span>
             </span>
           </a>
 

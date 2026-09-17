@@ -3,7 +3,17 @@ import { motion } from "framer-motion";
 import { ExternalLink, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
-function ProjectCard({ title, description, image, techStack, liveUrl, repoUrl, featured, index = 0 }) {
+function ProjectCard({
+  title,
+  description,
+  image,
+  techStack,
+  liveUrl,
+  repoUrl,
+  featured,
+  is_live = false,
+  index = 0,
+}) {
   return (
     <motion.div
       layout
@@ -61,7 +71,7 @@ function ProjectCard({ title, description, image, techStack, liveUrl, repoUrl, f
 
         {/* Links / Actions */}
         <div className="mt-6 pt-4 border-t border-primary/10 flex items-center gap-3">
-          {liveUrl && (
+          {is_live && liveUrl && liveUrl !== "#" ? (
             <a
               href={liveUrl}
               target="_blank"
@@ -71,6 +81,16 @@ function ProjectCard({ title, description, image, techStack, liveUrl, repoUrl, f
               <span>Live Demo</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              title="Live demo belum tersedia"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-primary/15 text-text/40 border border-primary/10 cursor-not-allowed select-none opacity-60"
+            >
+              <span>Live Demo</span>
+              <ExternalLink className="w-3.5 h-3.5 opacity-40" />
+            </button>
           )}
 
           {repoUrl && (

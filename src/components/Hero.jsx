@@ -46,7 +46,7 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text tracking-tight leading-[1.15]"
             >
-              Halo, Saya <span className="text-primary">{name}</span> 👋
+              Halo, Saya <span className="text-primary">{name}</span>
             </motion.h1>
 
             <motion.h2
@@ -158,7 +158,7 @@ function Hero() {
               className="absolute -bottom-3 -right-3 sm:bottom-2 sm:-right-4 px-4 py-2 rounded-2xl bg-background/90 backdrop-blur-md border border-primary/20 shadow-lg flex items-center gap-2"
             >
               <span className="text-lg">🚀</span>
-              <span className="text-xs font-bold text-text">Web Creator</span>
+              <span className="text-xs font-bold text-text">Build something magic with code!</span>
             </motion.div>
           </motion.div>
         </div>

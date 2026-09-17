@@ -7,7 +7,8 @@
     "techStack": ["React", "Vite", "Tailwind CSS"],
     "liveUrl": "#",
     "repoUrl": "https://github.com/bagasriatmaputera/portofolio-me",
-    "featured": true
+    "featured": true,
+    "is_live": false
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "techStack": ["React", "TypeScript", "Tailwind CSS", "Vercel"],
     "liveUrl": "https://test-it-idp-reactjs.vercel.app",
     "repoUrl": "https://github.com/bagasriatmaputera/test_it_idp_reactjs",
-    "featured": true
+    "featured": true,
+    "is_live": false
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "techStack": ["PHP", "Laravel", "Blade", "MySQL"],
     "liveUrl": "#",
     "repoUrl": "https://github.com/bagasriatmaputera/glowAttendApp",
-    "featured": false
+    "featured": false,
+    "is_live": false
   },
   {
     "id": 4,
@@ -37,6 +40,7 @@
     "techStack": ["PHP", "Expert System", "MySQL"],
     "liveUrl": "#",
     "repoUrl": "https://github.com/bagasriatmaputera/sistem_pakar_penyakit_mata",
-    "featured": false
+    "featured": false,
+    "is_live": false
   }
 ]
