@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Portfolio Website",
-    "description": "Website portofolio pribadi modern dan responsif dibangun dengan React JS, Vite, dan Tailwind CSS dengan dynamic light & dark mode.",
+    "title": {
+      "id": "Website Portofolio",
+      "en": "Portfolio Website"
+    },
+    "description": {
+      "id": "Website portofolio pribadi modern dan responsif dibangun dengan React JS, Vite, dan Tailwind CSS dengan dynamic light & dark mode.",
+      "en": "Modern and responsive personal portfolio website built with React JS, Vite, and Tailwind CSS with dynamic light & dark modes."
+    },
     "image": "/images/projects/portfolio.png",
     "techStack": ["React", "Vite", "Tailwind CSS"],
     "liveUrl": "#",
@@ -12,8 +18,14 @@
   },
   {
     "id": 2,
-    "title": "Test IT IDP React App",
-    "description": "Aplikasi antarmuka berbasis React JS dan TypeScript yang terintegrasi dengan REST API dan ter-deploy secara live.",
+    "title": {
+      "id": "Test IT IDP React App",
+      "en": "Test IT IDP React App"
+    },
+    "description": {
+      "id": "Aplikasi antarmuka berbasis React JS dan TypeScript yang terintegrasi dengan REST API dan ter-deploy secara live.",
+      "en": "React JS and TypeScript-based user interface application integrated with REST APIs and deployed live."
+    },
     "image": "/images/projects/dashboard.png",
     "techStack": ["React", "TypeScript", "Tailwind CSS", "Vercel"],
     "liveUrl": "https://test-it-idp-reactjs.vercel.app",
@@ -23,8 +35,14 @@
   },
   {
     "id": 3,
-    "title": "GlowAttend App",
-    "description": "Sistem aplikasi manajemen presensi dan absensi kehadiran berbasis web dengan pencatatan data karyawan terstruktur.",
+    "title": {
+      "id": "GlowAttend App",
+      "en": "GlowAttend App"
+    },
+    "description": {
+      "id": "Sistem aplikasi manajemen presensi dan absensi kehadiran berbasis web dengan pencatatan data karyawan terstruktur.",
+      "en": "Web-based attendance and presence management system featuring structured employee record tracking."
+    },
     "image": "/images/projects/taskflow.png",
     "techStack": ["PHP", "Laravel", "Blade", "MySQL"],
     "liveUrl": "#",
@@ -34,8 +52,14 @@
   },
   {
     "id": 4,
-    "title": "Sistem Pakar Diagnosis Penyakit Mata",
-    "description": "Aplikasi sistem pakar berbasis inferensi penyakit untuk membantu konsultasi dan identifikasi gejala penyakit mata secara dini.",
+    "title": {
+      "id": "Sistem Pakar Diagnosis Penyakit Mata",
+      "en": "Expert System for Eye Disease Diagnosis"
+    },
+    "description": {
+      "id": "Aplikasi sistem pakar berbasis inferensi penyakit untuk membantu konsultasi dan identifikasi gejala penyakit mata secara dini.",
+      "en": "Expert system application based on inference reasoning to assist in consultation and early identification of eye disease symptoms."
+    },
     "image": "/images/projects/devdocs.png",
     "techStack": ["PHP", "Expert System", "MySQL"],
     "liveUrl": "#",

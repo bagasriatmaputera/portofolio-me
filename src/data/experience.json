@@ -3,51 +3,123 @@
     "id": 1,
     "role": "Junior Software Engineer",
     "company": "The One Retail",
-    "period": "Jan 2026 - Sekarang",
-    "location": "South Jakarta, Jakarta, Indonesia (On-site)",
-    "description": "Mengembangkan dan mengelola arsitektur aplikasi ritel, integrasi queue management, serta penerapan pipeline CI/CD untuk memastikan pengiriman fitur yang andal dan terukur.",
-    "highlights": [
-      "Mengembangkan fitur web dan backend menggunakan Laravel, TypeScript, Vue.js, dan AngularJS",
-      "Menerapkan Queue Management dan pipeline Continuous Integration & Continuous Delivery (CI/CD)",
-      "Mendukung pengembangan aplikasi mobile multi-platform dengan React Native dan Ionic Framework"
-    ]
+    "period": {
+      "id": "Jan 2026 - Sekarang",
+      "en": "Jan 2026 - Present"
+    },
+    "location": {
+      "id": "Jakarta Selatan, Indonesia (On-site)",
+      "en": "South Jakarta, Jakarta, Indonesia (On-site)"
+    },
+    "description": {
+      "id": "Mengembangkan dan mengelola arsitektur aplikasi ritel, integrasi queue management, serta penerapan pipeline CI/CD untuk memastikan pengiriman fitur yang andal dan terukur.",
+      "en": "Developing and managing retail application architecture, queue management integration, and CI/CD pipelines to ensure reliable and scalable feature delivery."
+    },
+    "highlights": {
+      "id": [
+        "Mengembangkan fitur web dan backend menggunakan Laravel, TypeScript, Vue.js, dan AngularJS",
+        "Menerapkan Queue Management dan pipeline Continuous Integration & Continuous Delivery (CI/CD)",
+        "Mendukung pengembangan aplikasi mobile multi-platform dengan React Native dan Ionic Framework"
+      ],
+      "en": [
+        "Developed web and backend features using Laravel, TypeScript, Vue.js, and AngularJS",
+        "Implemented Queue Management and Continuous Integration & Continuous Delivery (CI/CD) pipelines",
+        "Supported multi-platform mobile application development with React Native and Ionic Framework"
+      ]
+    }
   },
   {
     "id": 2,
-    "role": "Backend Developer (Internship)",
+    "role": {
+      "id": "Backend Developer (Magang)",
+      "en": "Backend Developer (Internship)"
+    },
     "company": "PT. DigiCraft Syakeera Ventures",
-    "period": "Sep 2025 - Des 2025",
-    "location": "Surakarta, Central Java, Indonesia (Remote)",
-    "description": "Fokus pada pengembangan API backend yang andal, pemodelan database relasional, serta kolaborasi tim pengembang dengan metodologi Scrum.",
-    "highlights": [
-      "Membangun RESTful API performan tinggi menggunakan PHP dan framework Laravel",
-      "Merancang struktur basis data relasional dan optimasi query database",
-      "Berpartisipasi aktif dalam sprint harian, sprint planning, dan code review berbasis Agile/Scrum"
-    ]
+    "period": {
+      "id": "Sep 2025 - Des 2025",
+      "en": "Sep 2025 - Dec 2025"
+    },
+    "location": {
+      "id": "Surakarta, Jawa Tengah, Indonesia (Remote)",
+      "en": "Surakarta, Central Java, Indonesia (Remote)"
+    },
+    "description": {
+      "id": "Fokus pada pengembangan API backend yang andal, pemodelan database relasional, serta kolaborasi tim pengembang dengan metodologi Scrum.",
+      "en": "Focused on developing robust backend APIs, relational database modeling, and developer team collaboration using Scrum methodology."
+    },
+    "highlights": {
+      "id": [
+        "Membangun RESTful API performan tinggi menggunakan PHP dan framework Laravel",
+        "Merancang struktur basis data relasional dan optimasi query database",
+        "Berpartisipasi aktif dalam sprint harian, sprint planning, dan code review berbasis Agile/Scrum"
+      ],
+      "en": [
+        "Built high-performance RESTful APIs using PHP and Laravel framework",
+        "Designed relational database structures and optimized database queries",
+        "Actively participated in daily standups, sprint planning, and code reviews based on Agile/Scrum"
+      ]
+    }
   },
   {
     "id": 3,
-    "role": "Fullstack Web Developer - Trainee",
+    "role": {
+      "id": "Fullstack Web Developer - Trainee",
+      "en": "Fullstack Web Developer - Trainee"
+    },
     "company": "Eduwork",
-    "period": "Des 2024 - Mei 2025",
-    "location": "Remote",
-    "description": "Program intensif fullstack web development mencakup perancangan basis data, arsitektur MVC, integrasi API, dan pembuatan antarmuka responsif.",
-    "highlights": [
-      "Mengembangkan aplikasi web fullstack berbasis PHP, Laravel, MySQL, dan Vue.js",
-      "Melakukan pengujian serta dokumentasi endpoint API menggunakan Postman",
-      "Menerapkan standar arsitektur Model-View-Controller (MVC), Git version control, dan styling responsif dengan Bootstrap & CSS"
-    ]
+    "period": {
+      "id": "Des 2024 - Mei 2025",
+      "en": "Dec 2024 - May 2025"
+    },
+    "location": {
+      "id": "Remote",
+      "en": "Remote"
+    },
+    "description": {
+      "id": "Program intensif fullstack web development mencakup perancangan basis data, arsitektur MVC, integrasi API, dan pembuatan antarmuka responsif.",
+      "en": "Intensive fullstack web development program covering database design, MVC architecture, API integration, and responsive UI creation."
+    },
+    "highlights": {
+      "id": [
+        "Mengembangkan aplikasi web fullstack berbasis PHP, Laravel, MySQL, dan Vue.js",
+        "Melakukan pengujian serta dokumentasi endpoint API menggunakan Postman",
+        "Menerapkan standar arsitektur Model-View-Controller (MVC), Git version control, dan styling responsif dengan Bootstrap & CSS"
+      ],
+      "en": [
+        "Developed fullstack web applications using PHP, Laravel, MySQL, and Vue.js",
+        "Conducted API endpoint testing and documentation using Postman",
+        "Applied Model-View-Controller (MVC) architecture standards, Git version control, and responsive styling with Bootstrap & CSS"
+      ]
+    }
   },
   {
     "id": 4,
-    "role": "Operator",
+    "role": {
+      "id": "Operator",
+      "en": "Operator"
+    },
     "company": "Yamaha Music Product Asia",
-    "period": "Des 2022 - Jan 2025",
-    "location": "Cikarang Barat, West Java, Indonesia",
-    "description": "Menjalankan proses operasional produksi dengan standar kualitas tinggi, koordinasi tim kerja, serta dokumentasi administrasi berkala.",
-    "highlights": [
-      "Bekerja secara solid dalam tim untuk memastikan ketercapaian target produksi manufaktur secara konsisten",
-      "Mengelola pencatatan data dan rekapitulasi operasional menggunakan Microsoft Excel"
-    ]
+    "period": {
+      "id": "Des 2022 - Jan 2025",
+      "en": "Dec 2022 - Jan 2025"
+    },
+    "location": {
+      "id": "Cikarang Barat, Jawa Barat, Indonesia",
+      "en": "West Cikarang, West Java, Indonesia"
+    },
+    "description": {
+      "id": "Menjalankan proses operasional produksi dengan standar kualitas tinggi, koordinasi tim kerja, serta dokumentasi administrasi berkala.",
+      "en": "Managed production operational processes with high quality standards, team coordination, and periodic administrative documentation."
+    },
+    "highlights": {
+      "id": [
+        "Bekerja secara solid dalam tim untuk memastikan ketercapaian target produksi manufaktur secara konsisten",
+        "Mengelola pencatatan data dan rekapitulasi operasional menggunakan Microsoft Excel"
+      ],
+      "en": [
+        "Collaborated effectively within teams to consistently achieve manufacturing production targets",
+        "Managed operational data tracking and record-keeping using Microsoft Excel"
+      ]
+    }
   }
 ]

@@ -3,8 +3,13 @@ import { motion } from "framer-motion";
 import ExperienceCard from "../components/ExperienceCard";
 import experienceData from "../data/experience.json";
 import { Briefcase } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 function Experience() {
+  const { language } = useLanguage();
+  const t = translations[language].experience;
+
   return (
     <section id="experience" className="py-20 border-t border-primary/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,13 +23,13 @@ function Experience() {
         >
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
             <Briefcase className="w-4 h-4" />
-            <span>Karier & Pengalaman</span>
+            <span>{t.tag}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text">
-            Jejak Langkah Profesional
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-text/70 max-w-xl mx-auto">
-            Perjalanan karier dalam mengembangkan solusi teknologi digital dan membangun produk berorientasi pengguna.
+            {t.subtitle}
           </p>
         </motion.div>
 

@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import profileData from "../data/profile.json";
 import { Mail, MapPin, Send, CheckCircle, MessageSquare } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 function Contact() {
+  const { language } = useLanguage();
+  const t = translations[language].contact;
+
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -30,13 +35,13 @@ function Contact() {
         >
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
             <MessageSquare className="w-4 h-4" />
-            <span>Mari Terhubung</span>
+            <span>{t.tag}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text">
-            Punya Ide Proyek atau Ingin Berkolaborasi?
+            {t.title}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-text/70">
-            Kirimkan pesan melalui formulir di bawah ini atau hubungi langsung via email dan media sosial.
+            {t.subtitle}
           </p>
         </motion.div>
 
@@ -50,10 +55,9 @@ function Contact() {
             className="lg:col-span-5 p-8 rounded-3xl bg-primary/5 border border-primary/15 flex flex-col justify-between"
           >
             <div>
-              <h3 className="text-xl font-bold text-text mb-4">Informasi Kontak</h3>
+              <h3 className="text-xl font-bold text-text mb-4">{t.cardTitle}</h3>
               <p className="text-sm text-text/80 leading-relaxed mb-8">
-                Saya selalu antusias menyambut obrolan baru seputar frontend & backend development,
-                desain antarmuka, ataupun peluang kerja dan kolaborasi proyek.
+                {t.cardDescription}
               </p>
 
               <div className="space-y-4">
@@ -75,7 +79,7 @@ function Contact() {
             {/* Social links */}
             <div className="mt-8 pt-6 border-t border-primary/15">
               <span className="text-xs font-semibold uppercase tracking-wider text-secondary block mb-3">
-                Media Sosial
+                {t.socialMedia}
               </span>
               <div className="flex items-center gap-3">
                 {profileData.socials.github && (
@@ -123,9 +127,9 @@ function Contact() {
                   className="py-12 flex flex-col items-center justify-center text-center"
                 >
                   <CheckCircle className="w-12 h-12 text-accent mb-3 animate-bounce" />
-                  <h4 className="text-xl font-bold text-text">Pesan Berhasil Terkirim!</h4>
+                  <h4 className="text-xl font-bold text-text">{t.form.successTitle}</h4>
                   <p className="mt-2 text-sm text-text/70">
-                    Terima kasih sudah menyapa. Saya akan merespons pesan Anda secepatnya.
+                    {t.form.successMessage}
                   </p>
                 </motion.div>
               ) : (
@@ -139,7 +143,7 @@ function Contact() {
                 >
                   <div>
                     <label htmlFor="name" className="block text-xs font-bold text-text/90 uppercase tracking-wider mb-2">
-                      Nama Anda
+                      {t.form.nameLabel}
                     </label>
                     <input
                       id="name"
@@ -147,14 +151,14 @@ function Contact() {
                       required
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      placeholder="e.g. John Doe"
+                      placeholder={t.form.namePlaceholder}
                       className="w-full px-4 py-3 rounded-xl bg-background/80 border border-primary/20 text-text placeholder-text/40 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-xs font-bold text-text/90 uppercase tracking-wider mb-2">
-                      Alamat Email
+                      {t.form.emailLabel}
                     </label>
                     <input
                       id="email"
@@ -162,14 +166,14 @@ function Contact() {
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      placeholder="e.g. john@example.com"
+                      placeholder={t.form.emailPlaceholder}
                       className="w-full px-4 py-3 rounded-xl bg-background/80 border border-primary/20 text-text placeholder-text/40 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-xs font-bold text-text/90 uppercase tracking-wider mb-2">
-                      Pesan
+                      {t.form.messageLabel}
                     </label>
                     <textarea
                       id="message"
@@ -177,7 +181,7 @@ function Contact() {
                       required
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Ceritakan proyek atau ide Anda..."
+                      placeholder={t.form.messagePlaceholder}
                       className="w-full px-4 py-3 rounded-xl bg-background/80 border border-primary/20 text-text placeholder-text/40 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm resize-none transition-all"
                     />
                   </div>
@@ -186,7 +190,7 @@ function Contact() {
                     type="submit"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-background font-semibold text-sm hover:bg-accent hover:shadow-lg active:scale-95 transition-all duration-200 mt-2"
                   >
-                    <span>Kirim Pesan</span>
+                    <span>{t.form.submitBtn}</span>
                     <Send className="w-4 h-4" />
                   </button>
                 </motion.form>

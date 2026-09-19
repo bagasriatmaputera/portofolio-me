@@ -1,7 +1,10 @@
 {
   "name": "Bagas Riatma Putera",
   "title": "Junior Software Engineer",
-  "bio": "Software Engineer di The One Retail yang berfokus pada pengembangan aplikasi web modern, RESTful API, dan sistem berskala besar menggunakan Laravel, TypeScript, Vue.js, dan CI/CD.",
+  "bio": {
+    "id": "Software Engineer di The One Retail yang berfokus pada pengembangan aplikasi web modern, RESTful API, dan sistem berskala besar menggunakan Laravel, TypeScript, Vue.js, dan CI/CD.",
+    "en": "Software Engineer at The One Retail focused on building modern web applications, RESTful APIs, and scalable systems using Laravel, TypeScript, Vue.js, and CI/CD."
+  },
   "photo": "/images/profile/photo.jpg",
   "location": "Jakarta, Indonesia",
   "resumeUrl": "#",

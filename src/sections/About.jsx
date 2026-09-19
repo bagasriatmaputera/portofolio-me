@@ -1,24 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TechStackBadge from "../components/TechStackBadge";
 import profileData from "../data/profile.json";
 import techStackData from "../data/techstack.json";
-import { UserCheck, Terminal } from "lucide-react";
+import { UserCheck, Terminal, HeartHandshake, Users, FileText, Boxes, ShoppingCart } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 function About() {
-  const categories = ["Semua", "Backend", "Frontend", "Mobile", "Styling", "Tools"];
-  const [selectedCategory, setSelectedCategory] = React.useState("Semua");
+  const { language } = useLanguage();
+  const t = translations[language].about;
 
-  const filteredTech = selectedCategory === "Semua"
-    ? techStackData
-    : techStackData.filter((item) => item.category === selectedCategory);
+  const [selectedCategoryKey, setSelectedCategoryKey] = useState("all");
 
-  const metrics = [
-    { value: "2+", label: "Tahun di Industri Web", color: "text-accent" },
-    { value: "10+", label: "Proyek & Repositori", color: "text-primary" },
-    { value: "100%", label: "Responsif & Clean Code", color: "text-primary" },
-    { value: "⚡️", label: "Performa & CI/CD", color: "text-accent" },
-  ];
+  const categoryKeys = ["all", "backend", "frontend", "mobile", "styling", "tools"];
+
+  const filteredTech =
+    selectedCategoryKey === "all"
+      ? techStackData
+      : techStackData.filter(
+          (item) =>
+            item.category.toLowerCase() ===
+            t.categories[selectedCategoryKey].toLowerCase() ||
+            item.category.toLowerCase() === selectedCategoryKey.toLowerCase()
+        );
+
+  const domainIcons = [HeartHandshake, Users, FileText, Boxes, ShoppingCart];
+  const domains = t.domains.map((d, index) => ({
+    ...d,
+    icon: domainIcons[index] || FileText,
+  }));
 
   return (
     <section id="about" className="py-20 border-t border-primary/10">
@@ -33,14 +44,14 @@ function About() {
         >
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
             <UserCheck className="w-4 h-4" />
-            <span>Tentang Saya</span>
+            <span>{t.tag}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-text">
-            Membangun Pengalaman Web yang Cepat & Intuitif
+            {t.title}
           </h2>
         </motion.div>
 
-        {/* Grid content: Bio & Highlights */}
+        {/* Grid content: Bio & Domains */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,36 +61,47 @@ function About() {
             className="lg:col-span-7 space-y-4 text-base sm:text-lg text-text/80 leading-relaxed"
           >
             <p>
-              Halo! Saya adalah <strong className="text-primary font-semibold">{profileData.name}</strong>, seorang Software Engineer yang berfokus pada pengembangan aplikasi web modern, RESTful API terukur, dan antarmuka responsif.
+              {t.p1_prefix}{" "}
+              <strong className="text-primary font-semibold">{profileData.name}</strong>,{" "}
+              {t.p1_body}
             </p>
             <p>
-              Saat ini di <strong className="text-primary font-semibold">The One Retail</strong>, saya berkontribusi dalam arsitektur web berskala ritel, integrasi queue management, serta pipeline CI/CD untuk memastikan pengiriman fitur yang stabil dan efisien.
+              {t.p2_prefix}{" "}
+              <strong className="text-primary font-semibold">The One Retail</strong>,{" "}
+              {t.p2_body}
             </p>
             <p className="text-sm sm:text-base text-secondary font-medium">
-              Berdasar di {profileData.location}, saya selalu terbuka untuk kolaborasi teknis, diskusi inovasi software, dan peluang pengembangan produk digital.
+              {t.locationText.replace("{location}", profileData.location)}
             </p>
           </motion.div>
 
-          {/* Key metrics cards with hover and stagger */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            {metrics.map((metric, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="p-5 rounded-2xl bg-primary/5 hover:bg-primary/10 border border-primary/15 hover:border-accent/40 text-center transition-colors shadow-sm hover:shadow-md"
-              >
-                <span className={`block text-3xl sm:text-4xl font-extrabold ${metric.color}`}>
-                  {metric.value}
-                </span>
-                <span className="text-xs sm:text-sm font-semibold text-text/80 mt-1 block">
-                  {metric.label}
-                </span>
-              </motion.div>
-            ))}
+          {/* Domain cards */}
+          <div className="lg:col-span-5">
+            <p className="text-xs font-bold uppercase tracking-widest text-accent mb-3">
+              {t.domainsTitle}
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {domains.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                    className={`p-5 rounded-2xl bg-primary/5 hover:bg-primary/10 border border-primary/15 hover:border-accent/40 transition-colors shadow-sm hover:shadow-md ${
+                      idx === domains.length - 1 ? "col-span-2" : ""
+                    }`}
+                  >
+                    <Icon className="w-6 h-6 text-accent mb-3" />
+                    <span className="block text-base font-bold text-primary">{item.title}</span>
+                    <span className="text-xs sm:text-sm text-text/70 mt-0.5 block">{item.desc}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -94,24 +116,27 @@ function About() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
             <div className="flex items-center gap-2">
               <Terminal className="w-5 h-5 text-accent" />
-              <h3 className="text-xl sm:text-2xl font-bold text-text">Teknologi & Keahlian</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-text">{t.skillsTitle}</h3>
             </div>
 
             {/* Category Filter Pills */}
             <div className="flex flex-wrap gap-1.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-150 active:scale-95 ${
-                    selectedCategory === cat
-                      ? "bg-primary text-background shadow-sm"
-                      : "bg-primary/5 text-text/70 hover:bg-primary/15 hover:text-text"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {categoryKeys.map((key) => {
+                const label = t.categories[key];
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedCategoryKey(key)}
+                    className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-150 active:scale-95 ${
+                      selectedCategoryKey === key
+                        ? "bg-primary text-background shadow-sm"
+                        : "bg-primary/5 text-text/70 hover:bg-primary/15 hover:text-text"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
