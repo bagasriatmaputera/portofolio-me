@@ -81,9 +81,14 @@ export const translations = {
         messageLabel: "Pesan",
         messagePlaceholder: "Ceritakan proyek atau ide Anda...",
         submitBtn: "Kirim Pesan",
+        submittingBtn: "Mengirim Pesan...",
         successTitle: "Pesan Berhasil Terkirim!",
         successMessage:
-          "Terima kasih sudah menyapa. Saya akan merespons pesan Anda secepatnya.",
+          "Terima kasih sudah menyapa. Pesan Anda telah terkirim dan saya akan merespons secepatnya.",
+        errorTitle: "Gagal Mengirim Pesan",
+        errorMessage:
+          "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti atau hubungi langsung via email.",
+        modalClose: "Tutup",
       },
     },
     footer: {
@@ -173,9 +178,14 @@ export const translations = {
         messageLabel: "Message",
         messagePlaceholder: "Tell me about your project or idea...",
         submitBtn: "Send Message",
+        submittingBtn: "Sending Message...",
         successTitle: "Message Sent Successfully!",
         successMessage:
-          "Thank you for reaching out. I'll get back to you as soon as possible.",
+          "Thank you for reaching out. Your message has been sent, and I'll get back to you as soon as possible.",
+        errorTitle: "Failed to Send Message",
+        errorMessage:
+          "An error occurred while sending your message. Please try again later or reach out directly via email.",
+        modalClose: "Close",
       },
     },
     footer: {
