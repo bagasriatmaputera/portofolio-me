@@ -13,8 +13,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |
-            cd ~/app
+            cd ~/portofolio-me
             git pull origin main
             npm install
             npm run build
-            pm2 restart app
+            pm2 restart portofolio-me
