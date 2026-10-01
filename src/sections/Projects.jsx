@@ -3,13 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import projects from "../data/projects.json";
 import { FolderGit2 } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 function Projects() {
   const [filter, setFilter] = useState("all");
+  const { language } = useLanguage();
+  const t = translations[language].projects;
 
-  const displayedProjects = filter === "featured"
-    ? projects.filter((p) => p.featured)
-    : projects;
+  const displayedProjects =
+    filter === "featured" ? projects.filter((p) => p.featured) : projects;
 
   return (
     <section id="projects" className="py-20 border-t border-primary/10">
@@ -25,10 +28,10 @@ function Projects() {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-accent mb-2">
               <FolderGit2 className="w-4 h-4" />
-              <span>Portofolio Karya</span>
+              <span>{t.tag}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-text">
-              Proyek yang Pernah Saya Bangun
+              {t.title}
             </h2>
           </div>
 
@@ -42,7 +45,7 @@ function Projects() {
                   : "text-text/70 hover:text-text"
               }`}
             >
-              Semua Proyek ({projects.length})
+              {t.filterAll} ({projects.length})
             </button>
             <button
               onClick={() => setFilter("featured")}
@@ -52,7 +55,7 @@ function Projects() {
                   : "text-text/70 hover:text-text"
               }`}
             >
-              Unggulan ({projects.filter((p) => p.featured).length})
+              {t.filterFeatured} ({projects.filter((p) => p.featured).length})
             </button>
           </div>
         </motion.div>

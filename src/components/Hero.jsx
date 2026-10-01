@@ -2,9 +2,18 @@ import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import profileData from "../data/profile.json";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 function Hero() {
-  const { name, title, bio, photo, availableForWork, socials } = profileData;
+  const { language } = useLanguage();
+  const t = translations[language].hero;
+  const { name, title, photo, availableForWork, socials } = profileData;
+
+  const currentBio =
+    typeof profileData.bio === "object"
+      ? profileData.bio[language] || profileData.bio.id
+      : profileData.bio;
 
   return (
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
@@ -36,7 +45,7 @@ function Hero() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                 </span>
-                Tersedia untuk Pekerjaan / Proyek Baru
+                {t.statusBadge}
               </motion.div>
             )}
 
@@ -46,7 +55,7 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text tracking-tight leading-[1.15]"
             >
-              Halo, Saya <span className="text-primary">{name}</span> 👋
+              {t.greeting} <span className="text-primary">{name}</span>
             </motion.h1>
 
             <motion.h2
@@ -64,7 +73,7 @@ function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mt-4 text-base sm:text-lg text-text/80 leading-relaxed max-w-2xl"
             >
-              {bio}
+              {currentBio}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -78,14 +87,14 @@ function Hero() {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-background font-semibold text-sm hover:bg-accent hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
-                Lihat Proyek
+                {t.ctaProjects}
                 <ArrowDown className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-primary/30 hover:border-accent text-text hover:text-accent font-semibold text-sm hover:bg-primary/5 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
-                Hubungi Saya
+                {t.ctaContact}
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </motion.div>
@@ -103,7 +112,8 @@ function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="p-2.5 rounded-xl border border-primary/20 hover:border-accent hover:text-accent hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-200"
-                  aria-label="GitHub Profile"
+                  aria-label={t.ariaGithub}
+                  title={t.ariaGithub}
                 >
                   <FaGithub className="w-5 h-5" />
                 </a>
@@ -114,7 +124,8 @@ function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="p-2.5 rounded-xl border border-primary/20 hover:border-accent hover:text-accent hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-200"
-                  aria-label="LinkedIn Profile"
+                  aria-label={t.ariaLinkedin}
+                  title={t.ariaLinkedin}
                 >
                   <FaLinkedin className="w-5 h-5" />
                 </a>
@@ -123,7 +134,8 @@ function Hero() {
                 <a
                   href={`mailto:${socials.email}`}
                   className="p-2.5 rounded-xl border border-primary/20 hover:border-accent hover:text-accent hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-200"
-                  aria-label="Email Me"
+                  aria-label={t.ariaEmail}
+                  title={t.ariaEmail}
                 >
                   <Mail className="w-5 h-5" />
                 </a>
@@ -158,7 +170,7 @@ function Hero() {
               className="absolute -bottom-3 -right-3 sm:bottom-2 sm:-right-4 px-4 py-2 rounded-2xl bg-background/90 backdrop-blur-md border border-primary/20 shadow-lg flex items-center gap-2"
             >
               <span className="text-lg">🚀</span>
-              <span className="text-xs font-bold text-text">Web Creator</span>
+              <span className="text-xs font-bold text-text">{t.floatingBadge}</span>
             </motion.div>
           </motion.div>
         </div>

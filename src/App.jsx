@@ -1,15 +1,18 @@
 import React from "react";
 import useDarkMode from "./hooks/useDarkMode";
+import { LanguageProvider, useLanguage } from "./context/LanguageContext";
+import { translations } from "./data/translations";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
-import { Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
-function App() {
-  const [isDark, toggleDarkMode] = useDarkMode();
+function MainPortfolio({ isDark, toggleDarkMode }) {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -34,15 +37,16 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-text/70">
             <p className="flex items-center gap-1.5">
-              Dibuat dengan <Heart className="w-4 h-4 text-accent fill-accent" /> menggunakan React JS, Vite & Tailwind CSS.
+              <span>BRP &lt;/&gt;</span>
             </p>
 
             <div className="flex items-center gap-6">
-              <span>© {new Date().getFullYear()} Bagas. All rights reserved.</span>
+              <span>© {new Date().getFullYear()} Bagas Riatma Putera. {t.rights}</span>
               <button
                 onClick={scrollToTop}
                 className="p-2 rounded-lg border border-primary/20 bg-background/80 hover:border-accent hover:text-accent transition-all duration-200"
-                aria-label="Kembali ke atas"
+                aria-label={t.backToTop}
+                title={t.backToTop}
               >
                 <ArrowUp className="w-4 h-4" />
               </button>
@@ -51,6 +55,16 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  const [isDark, toggleDarkMode] = useDarkMode();
+
+  return (
+    <LanguageProvider>
+      <MainPortfolio isDark={isDark} toggleDarkMode={toggleDarkMode} />
+    </LanguageProvider>
   );
 }
 
