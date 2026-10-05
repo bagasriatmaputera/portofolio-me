@@ -61,7 +61,7 @@ function Projects() {
         </motion.div>
 
         {/* Projects Grid with AnimatePresence */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, idx) => (
               <ProjectCard key={project.id} {...project} index={idx} />

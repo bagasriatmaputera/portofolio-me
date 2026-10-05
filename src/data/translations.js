@@ -63,6 +63,9 @@ export const translations = {
       liveDemo: "Live Demo",
       liveDemoDisabled: "Live demo belum tersedia",
       sourceCode: "Kode Sumber",
+      sourceCodeDisabled: "Repositori Privat",
+      gifBadgeHover: "Arahkan kursor untuk GIF",
+      gifBadgePlaying: "Memutar GIF",
     },
     contact: {
       tag: "Mari Terhubung",
@@ -160,6 +163,9 @@ export const translations = {
       liveDemo: "Live Demo",
       liveDemoDisabled: "Live demo not yet available",
       sourceCode: "Source Code",
+      sourceCodeDisabled: "Private Repository",
+      gifBadgeHover: "Hover for GIF",
+      gifBadgePlaying: "Playing GIF",
     },
     contact: {
       tag: "Let's Connect",

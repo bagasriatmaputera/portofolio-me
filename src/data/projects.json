@@ -2,69 +2,39 @@
   {
     "id": 1,
     "title": {
-      "id": "Website Portofolio",
-      "en": "Portfolio Website"
+      "id": "EyeCheck - Diagnosis Penyakit Mata",
+      "en": "EyeCheck - Eye Disease Diagnosis"
     },
     "description": {
-      "id": "Website portofolio pribadi modern dan responsif dibangun dengan React JS, Vite, dan Tailwind CSS dengan dynamic light & dark mode.",
-      "en": "Modern and responsive personal portfolio website built with React JS, Vite, and Tailwind CSS with dynamic light & dark modes."
+      "id": "Aplikasi sistem pakar berbasis inferensi penyakit untuk membantu konsultasi dan identifikasi gejala penyakit mata secara dini.",
+      "en": "Web-based expert system application using disease inference reasoning to assist in consultation and early identification of eye disease symptoms."
     },
-    "image": "/images/projects/portfolio.png",
-    "techStack": ["React", "Vite", "Tailwind CSS"],
-    "liveUrl": "#",
-    "repoUrl": "https://github.com/bagasriatmaputera/portofolio-me",
+    "image": "/images/projects/Eyecheck Preview.jpeg",
+    "gifImage": "/images/projects/Eyecheck Gif.gif",
+    "techStack": ["PHP", "Laravel", "MySQL", "Tailwind CSS"],
+    "liveUrl": "https://eyecheck.bagasr.my.id",
+    "repoUrl": "",
     "featured": true,
-    "is_live": false
+    "is_live": true,
+    "is_repo": false
   },
   {
     "id": 2,
     "title": {
-      "id": "Test IT IDP React App",
-      "en": "Test IT IDP React App"
+      "id": "Syaku Coffee",
+      "en": "Syaku Coffee"
     },
     "description": {
-      "id": "Aplikasi antarmuka berbasis React JS dan TypeScript yang terintegrasi dengan REST API dan ter-deploy secara live.",
-      "en": "React JS and TypeScript-based user interface application integrated with REST APIs and deployed live."
+      "id": "Aplikasi katalog dan pemesanan online modern untuk Syaku Coffee dengan antarmuka yang responsif, visual interaktif, dan alur belanja yang mulus.",
+      "en": "Modern online catalog and ordering application for Syaku Coffee featuring a responsive interface, interactive visuals, and seamless shopping experience."
     },
-    "image": "/images/projects/dashboard.png",
-    "techStack": ["React", "TypeScript", "Tailwind CSS", "Vercel"],
-    "liveUrl": "https://test-it-idp-reactjs.vercel.app",
-    "repoUrl": "https://github.com/bagasriatmaputera/test_it_idp_reactjs",
+    "image": "/images/projects/Syaku App Preview.jpeg",
+    "gifImage": "/images/projects/Syaku App GIF.gif",
+    "techStack": ["React", "JavaScript", "Tailwind CSS", "Vite"],
+    "liveUrl": "https://syaku-coffe.bagasr.my.id",
+    "repoUrl": "",
     "featured": true,
-    "is_live": false
-  },
-  {
-    "id": 3,
-    "title": {
-      "id": "GlowAttend App",
-      "en": "GlowAttend App"
-    },
-    "description": {
-      "id": "Sistem aplikasi manajemen presensi dan absensi kehadiran berbasis web dengan pencatatan data karyawan terstruktur.",
-      "en": "Web-based attendance and presence management system featuring structured employee record tracking."
-    },
-    "image": "/images/projects/taskflow.png",
-    "techStack": ["PHP", "Laravel", "Blade", "MySQL"],
-    "liveUrl": "#",
-    "repoUrl": "https://github.com/bagasriatmaputera/glowAttendApp",
-    "featured": false,
-    "is_live": false
-  },
-  {
-    "id": 4,
-    "title": {
-      "id": "Sistem Pakar Diagnosis Penyakit Mata",
-      "en": "Expert System for Eye Disease Diagnosis"
-    },
-    "description": {
-      "id": "Aplikasi sistem pakar berbasis inferensi penyakit untuk membantu konsultasi dan identifikasi gejala penyakit mata secara dini.",
-      "en": "Expert system application based on inference reasoning to assist in consultation and early identification of eye disease symptoms."
-    },
-    "image": "/images/projects/devdocs.png",
-    "techStack": ["PHP", "Expert System", "MySQL"],
-    "liveUrl": "#",
-    "repoUrl": "https://github.com/bagasriatmaputera/sistem_pakar_penyakit_mata",
-    "featured": false,
-    "is_live": false
+    "is_live": true,
+    "is_repo": false
   }
 ]
