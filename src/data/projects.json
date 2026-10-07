@@ -31,7 +31,7 @@
     "image": "/images/projects/Syaku App Preview.jpeg",
     "gifImage": "/images/projects/Syaku App GIF.gif",
     "techStack": ["React", "JavaScript", "Tailwind CSS", "Vite"],
-    "liveUrl": "https://syaku-coffe.bagasr.my.id",
+    "liveUrl": "https://syaku-coffe-demo.bagasr.my.id",
     "repoUrl": "",
     "featured": true,
     "is_live": true,
