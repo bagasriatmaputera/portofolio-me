@@ -36,5 +36,24 @@
     "featured": true,
     "is_live": true,
     "is_repo": false
+  },
+  {
+    "id": 3,
+    "title": {
+      "id": "GlowAttend - Sistem Presensi & Manajemen Karyawan",
+      "en": "GlowAttend - Attendance & Employee Management System"
+    },
+    "description": {
+      "id": "Aplikasi absensi dan manajemen karyawan modern berbasis GPS geolokasi, multi-role dashboard (Owner, Admin, Karyawan), alur persetujuan cuti online, dan rekap kehadiran terintegrasi.",
+      "en": "Modern GPS geolocation-based attendance and employee management web application featuring multi-role access (Owner, Admin, Employee), online leave request approvals, and attendance reports."
+    },
+    "image": "/images/projects/GlowAttend Preview.jpeg",
+    "gifImage": "/images/projects/GlowAttend GIF.gif",
+    "techStack": ["PHP", "Laravel", "Livewire", "MySQL", "Tailwind CSS"],
+    "liveUrl": "https://glowattend-demo.bagasr.my.id",
+    "repoUrl": "https://github.com/bagasriatmaputera/glowAttendApp.git",
+    "featured": true,
+    "is_live": true,
+    "is_repo": true
   }
 ]
