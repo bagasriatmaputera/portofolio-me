@@ -16,10 +16,10 @@ Website portofolio pribadi yang dibangun menggunakan **React JS + Vite**, tanpa 
 | ------------- | ---------------------------------- |
 | Framework     | React JS (Vite)                    |
 | Styling       | Tailwind CSS                       |
-| Routing       | React Router (opsional)            |
-| Animasi       | Framer Motion (opsional)           |
+| Routing       | React Router                       |
+| Animasi       | Framer Motion                      |
 | Icon          | React Icons / Lucide React         |
-| Form Contact  | EmailJS / Formspree (opsional)     |
+| Form Contact  | Web3Form                           |
 | Data Source   | JSON lokal (tanpa backend)         |
 
 ## 📁 Struktur Folder
@@ -243,14 +243,6 @@ function Projects() {
 
 export default Projects;
 ```
-
-## 🌱 Roadmap / Pengembangan Selanjutnya
-
-- [ ] Tambah section Blog (opsional, pakai Markdown + `gray-matter`)
-- [ ] Integrasi form contact via EmailJS/Formspree
-- [ ] Animasi scroll reveal dengan Framer Motion
-- [ ] SEO meta tags (react-helmet-async)
-- [ ] Deploy ke Vercel / Netlify
 
 ## 📄 Lisensi
 
