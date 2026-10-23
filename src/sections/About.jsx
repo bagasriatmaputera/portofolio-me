@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TechStackBadge from "../components/TechStackBadge";
-import profileData from "../data/profile.json";
 import techStackData from "../data/techstack.json";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import { UserCheck, Terminal, HeartHandshake, Users, FileText, Boxes, ShoppingCart } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
 
 function About() {
   const { language } = useLanguage();
+  const { profile } = usePortfolioData();
   const t = translations[language].about;
 
   const [selectedCategoryKey, setSelectedCategoryKey] = useState("all");
@@ -62,7 +63,7 @@ function About() {
           >
             <p>
               {t.p1_prefix}{" "}
-              <strong className="text-primary font-semibold">{profileData.name}</strong>,{" "}
+              <strong className="text-primary font-semibold">{profile?.name}</strong>,{" "}
               {t.p1_body}
             </p>
             <p>
@@ -71,7 +72,7 @@ function About() {
               {t.p2_body}
             </p>
             <p className="text-sm sm:text-base text-secondary font-medium">
-              {t.locationText.replace("{location}", profileData.location)}
+              {t.locationText.replace("{location}", profile?.location ?? "")}
             </p>
           </motion.div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import profileData from "../data/profile.json";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import {
   Mail,
   MapPin,
@@ -18,6 +18,8 @@ import { environment } from "../../environment/environment";
 
 function Contact() {
   const { language } = useLanguage();
+  const { profile } = usePortfolioData();
+  const socials = profile?.socials ?? {};
   const t = translations[language].contact;
 
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
@@ -123,16 +125,16 @@ function Contact() {
 
               <div className="space-y-4">
                 <a
-                  href={`mailto:${profileData.socials.email}`}
+                  href={`mailto:${socials.email}`}
                   className="flex items-center gap-3 text-sm text-text/90 dark:text-text hover:text-accent dark:hover:text-accent transition-colors p-3.5 rounded-2xl bg-background/80 dark:bg-black/40 border border-primary/15 dark:border-primary/25 hover:border-accent/50 dark:hover:border-accent/50 shadow-inner"
                 >
                   <Mail className="w-5 h-5 text-accent shrink-0" />
-                  <span className="truncate font-medium">{profileData.socials.email}</span>
+                  <span className="truncate font-medium">{socials.email}</span>
                 </a>
 
                 <div className="flex items-center gap-3 text-sm text-text/90 dark:text-text p-3.5 rounded-2xl bg-background/80 dark:bg-black/40 border border-primary/15 dark:border-primary/25 shadow-inner">
                   <MapPin className="w-5 h-5 text-accent shrink-0" />
-                  <span className="font-medium">{profileData.location}</span>
+                  <span className="font-medium">{profile?.location ?? ""}</span>
                 </div>
               </div>
             </div>
@@ -143,9 +145,9 @@ function Contact() {
                 {t.socialMedia}
               </span>
               <div className="flex items-center gap-3">
-                {profileData.socials.github && (
+                {socials.github && (
                   <a
-                    href={profileData.socials.github}
+                    href={socials.github}
                     target="_blank"
                     rel="noreferrer"
                     className="p-2.5 rounded-xl border border-primary/20 dark:border-primary/30 bg-background/80 dark:bg-black/40 text-text/80 dark:text-text hover:border-accent hover:text-accent dark:hover:text-accent hover:scale-105 active:scale-95 transition-all duration-200"
@@ -154,9 +156,9 @@ function Contact() {
                     <FaGithub className="w-5 h-5" />
                   </a>
                 )}
-                {profileData.socials.linkedin && (
+                {socials.linkedin && (
                   <a
-                    href={profileData.socials.linkedin}
+                    href={socials.linkedin}
                     target="_blank"
                     rel="noreferrer"
                     className="p-2.5 rounded-xl border border-primary/20 dark:border-primary/30 bg-background/80 dark:bg-black/40 text-text/80 dark:text-text hover:border-accent hover:text-accent dark:hover:text-accent hover:scale-105 active:scale-95 transition-all duration-200"

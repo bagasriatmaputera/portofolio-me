@@ -1,6 +1,10 @@
 import React from "react";
 import useDarkMode from "./hooks/useDarkMode";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
+import {
+  PortfolioDataProvider,
+  usePortfolioData,
+} from "./context/PortfolioDataContext";
 import { translations } from "./data/translations";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -8,7 +12,7 @@ import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
-import { ArrowUp } from "lucide-react";
+import { AlertCircle, ArrowUp, Loader2, RefreshCw } from "lucide-react";
 
 function MainPortfolio({ isDark, toggleDarkMode }) {
   const { language } = useLanguage();
@@ -58,12 +62,53 @@ function MainPortfolio({ isDark, toggleDarkMode }) {
   );
 }
 
+function PortfolioGate({ isDark, toggleDarkMode }) {
+  const { loading, error, refetch } = usePortfolioData();
+  const { language } = useLanguage();
+  const t = translations[language].common;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background text-text flex flex-col items-center justify-center gap-4">
+        <Loader2 className="w-8 h-8 animate-spin text-accent" />
+        <p className="text-sm text-text/70">{t.loading}</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background text-text flex items-center justify-center p-6">
+        <div className="w-full max-w-md rounded-3xl border border-primary/20 bg-primary/5 p-8 text-center shadow-lg">
+          <div className="mx-auto mb-4 flex w-14 h-14 items-center justify-center rounded-2xl bg-rose-500/15 text-rose-500">
+            <AlertCircle className="w-7 h-7" />
+          </div>
+          <h1 className="text-xl font-bold text-text">{t.errorTitle}</h1>
+          <p className="mt-2 text-sm text-text/70">{t.errorMessage}</p>
+          <button
+            type="button"
+            onClick={refetch}
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-background transition-colors hover:bg-accent"
+          >
+            <RefreshCw className="w-4 h-4" />
+            {t.retry}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return <MainPortfolio isDark={isDark} toggleDarkMode={toggleDarkMode} />;
+}
+
 function App() {
   const [isDark, toggleDarkMode] = useDarkMode();
 
   return (
     <LanguageProvider>
-      <MainPortfolio isDark={isDark} toggleDarkMode={toggleDarkMode} />
+      <PortfolioDataProvider>
+        <PortfolioGate isDark={isDark} toggleDarkMode={toggleDarkMode} />
+      </PortfolioDataProvider>
     </LanguageProvider>
   );
 }

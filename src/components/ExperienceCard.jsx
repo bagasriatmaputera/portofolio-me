@@ -66,9 +66,11 @@ function ExperienceCard({ role, company, period, location, description, highligh
           )}
         </div>
 
-        <p className="text-sm sm:text-base text-text/80 leading-relaxed mb-4">
-          {currentDescription}
-        </p>
+        {currentDescription && (
+          <p className="text-sm sm:text-base text-text/80 leading-relaxed mb-4">
+            {currentDescription}
+          </p>
+        )}
 
         {currentHighlights && currentHighlights.length > 0 && (
           <div className="space-y-2 pt-2 border-t border-primary/10">

@@ -98,6 +98,13 @@ export const translations = {
       rights: "Semua hak dilindungi undang-undang.",
       backToTop: "Kembali ke atas",
     },
+    common: {
+      loading: "Memuat data portofolio...",
+      errorTitle: "Gagal Memuat Data",
+      errorMessage:
+        "Tidak dapat terhubung ke API portofolio. Periksa koneksi lalu coba lagi.",
+      retry: "Coba Lagi",
+    },
   },
   en: {
     nav: {
@@ -197,6 +204,13 @@ export const translations = {
     footer: {
       rights: "All rights reserved.",
       backToTop: "Back to top",
+    },
+    common: {
+      loading: "Loading portfolio data...",
+      errorTitle: "Failed to Load Data",
+      errorMessage:
+        "Could not connect to the portfolio API. Check your connection and try again.",
+      retry: "Try Again",
     },
   },
 };

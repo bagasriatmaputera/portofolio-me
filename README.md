@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Website portofolio pribadi yang dibangun menggunakan **React JS + Vite**, tanpa backend — seluruh data (pengalaman, proyek, tech stack) disimpan dalam file **JSON lokal** sebagai sumber data statis.
+Website portofolio pribadi yang dibangun menggunakan **React JS + Vite**. Data profil, pengalaman, dan proyek diambil dari API **Hustlr** (`/api/portfolio`); tech stack tetap menggunakan JSON lokal.
 
 ## ✨ Fitur
 
@@ -20,7 +20,7 @@ Website portofolio pribadi yang dibangun menggunakan **React JS + Vite**, tanpa 
 | Animasi       | Framer Motion                      |
 | Icon          | React Icons / Lucide React         |
 | Form Contact  | Web3Form                           |
-| Data Source   | JSON lokal (tanpa backend)         |
+| Data Source   | REST API Hustlr + JSON lokal       |
 
 ## 📁 Struktur Folder
 
@@ -73,6 +73,14 @@ npx tailwindcss init -p
 
 # 4. Jalankan development server
 npm run dev
+```
+
+### Konfigurasi API
+
+Default API: `http://localhost:8000/api`. Untuk environment lain, set saat build/dev:
+
+```bash
+VITE_API_BASE_URL=https://domain-hustlr/api npm run build
 ```
 
 ## 🎨 Tailwind Configuration

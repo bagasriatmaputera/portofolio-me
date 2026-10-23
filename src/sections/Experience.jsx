@@ -1,13 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ExperienceCard from "../components/ExperienceCard";
-import experienceData from "../data/experience.json";
 import { Briefcase } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import { translations } from "../data/translations";
 
 function Experience() {
   const { language } = useLanguage();
+  const { experiences } = usePortfolioData();
   const t = translations[language].experience;
 
   return (
@@ -35,7 +36,7 @@ function Experience() {
 
         {/* Experience Timeline */}
         <div className="relative mt-8">
-          {experienceData.map((exp, idx) => (
+          {experiences.map((exp, idx) => (
             <ExperienceCard key={exp.id} {...exp} index={idx} />
           ))}
         </div>

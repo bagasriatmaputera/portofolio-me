@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
-import projects from "../data/projects.json";
 import { FolderGit2 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import { translations } from "../data/translations";
 
 function Projects() {
   const [filter, setFilter] = useState("all");
   const { language } = useLanguage();
+  const { projects } = usePortfolioData();
   const t = translations[language].projects;
 
   const displayedProjects =

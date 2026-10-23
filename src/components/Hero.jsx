@@ -1,19 +1,21 @@
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import profileData from "../data/profile.json";
 import { useLanguage } from "../context/LanguageContext";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import { translations } from "../data/translations";
 
 function Hero() {
   const { language } = useLanguage();
+  const { profile } = usePortfolioData();
   const t = translations[language].hero;
-  const { name, title, photo, availableForWork, socials } = profileData;
+  const { name, title, photo, availableForWork } = profile ?? {};
+  const socials = profile?.socials ?? {};
 
   const currentBio =
-    typeof profileData.bio === "object"
-      ? profileData.bio[language] || profileData.bio.id
-      : profileData.bio;
+    typeof profile?.bio === "object"
+      ? profile.bio[language] || profile.bio.id
+      : profile?.bio;
 
   return (
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
@@ -153,7 +155,7 @@ function Hero() {
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-3xl overflow-hidden p-2 bg-gradient-to-br from-primary via-secondary to-accent shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
               <div className="w-full h-full rounded-2xl overflow-hidden bg-background flex items-center justify-center">
                 <img
-                  src={photo}
+                  src={photo || "/images/profile/avatar-placeholder.svg"}
                   alt={name}
                   onError={(e) => {
                     e.currentTarget.onerror = null;
