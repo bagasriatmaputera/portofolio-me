@@ -157,7 +157,7 @@ function ProjectDetail({ project, onBack }) {
             alt={title}
             onError={(e) => {
               e.currentTarget.onerror = null;
-              e.currentTarget.src = "/images/projects/project-placeholder.svg";
+              // e.currentTarget.src = "/images/projects/project-placeholder.svg"; 
             }}
             className="w-full h-full object-cover object-top"
           />
@@ -170,9 +170,8 @@ function ProjectDetail({ project, onBack }) {
               className="absolute bottom-4 right-4 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold bg-background/90 backdrop-blur-md border border-primary/20 text-text shadow-md hover:border-accent hover:text-accent transition-all duration-200"
             >
               <span
-                className={`w-2 h-2 rounded-full ${
-                  showGif ? "bg-emerald-500 animate-pulse" : "bg-accent"
-                }`}
+                className={`w-2 h-2 rounded-full ${showGif ? "bg-emerald-500 animate-pulse" : "bg-accent"
+                  }`}
               />
               <span>{showGif ? t.gifBadgePlaying : t.gifBadgeHover}</span>
             </button>
@@ -265,8 +264,8 @@ function ProjectDetail({ project, onBack }) {
                         alt={captionText || `${title} screenshot ${idx + 1}`}
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src =
-                            "/images/projects/project-placeholder.svg";
+                          // e.currentTarget.src =
+                          // "/images/projects/project-placeholder.svg";
                         }}
                         className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
                       />
@@ -361,7 +360,7 @@ function ProjectDetail({ project, onBack }) {
                   alt={getLocalizedText(activeMedia.caption) || title}
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/images/projects/project-placeholder.svg";
+                    // e.currentTarget.src = "/images/projects/project-placeholder.svg";
                   }}
                   className="max-h-[65vh] w-auto max-w-full object-contain rounded-lg shadow-sm"
                 />

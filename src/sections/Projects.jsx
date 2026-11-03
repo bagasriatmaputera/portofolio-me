@@ -62,8 +62,8 @@ function Projects({ onSelectProject }) {
         </motion.div>
 
         {/* Projects Grid with AnimatePresence */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <AnimatePresence mode="popLayout">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <AnimatePresence>
             {displayedProjects.map((project, idx) => (
               <ProjectCard
                 key={project.id}

@@ -38,14 +38,14 @@ function ProjectCard({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: index * 0.1 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       whileHover={{ y: -6 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group flex flex-col rounded-2xl overflow-hidden bg-primary/5 hover:bg-primary/10 border border-primary/15 hover:border-accent/40 transition-all duration-300 hover:shadow-2xl relative"
+      className="group flex flex-col w-full rounded-2xl overflow-hidden bg-primary/5 hover:bg-primary/10 border border-primary/15 hover:border-accent/40 transition-all duration-300 hover:shadow-2xl relative"
     >
       {/* Project Image & GIF Hover Preview */}
       <div
