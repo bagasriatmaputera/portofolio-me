@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import { translations } from "../data/translations";
 
-function Projects() {
+function Projects({ onSelectProject }) {
   const [filter, setFilter] = useState("all");
   const { language } = useLanguage();
   const { projects } = usePortfolioData();
@@ -65,7 +65,12 @@ function Projects() {
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <AnimatePresence mode="popLayout">
             {displayedProjects.map((project, idx) => (
-              <ProjectCard key={project.id} {...project} index={idx} />
+              <ProjectCard
+                key={project.id}
+                {...project}
+                index={idx}
+                onSelectProject={onSelectProject}
+              />
             ))}
           </AnimatePresence>
         </motion.div>

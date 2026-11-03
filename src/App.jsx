@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import useDarkMode from "./hooks/useDarkMode";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import {
@@ -12,15 +12,72 @@ import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+import ProjectDetail from "./pages/ProjectDetail";
 import { AlertCircle, ArrowUp, Loader2, RefreshCw } from "lucide-react";
 
 function MainPortfolio({ isDark, toggleDarkMode }) {
   const { language } = useLanguage();
+  const { getProjectById } = usePortfolioData();
   const t = translations[language].footer;
+
+  const [selectedProjectId, setSelectedProjectId] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const queryProj = params.get("project");
+    if (queryProj) return queryProj;
+
+    const hash = window.location.hash;
+    if (hash.startsWith("#project/")) {
+      return hash.replace("#project/", "");
+    }
+    return null;
+  });
+
+  // Synchronize URL with selected project
+  const handleSelectProject = (projectId) => {
+    setSelectedProjectId(projectId);
+    const url = new URL(window.location.href);
+    url.searchParams.set("project", projectId);
+    window.history.pushState({ projectId }, "", url.toString());
+  };
+
+  const handleBackToProjects = () => {
+    setSelectedProjectId(null);
+    const url = new URL(window.location.href);
+    url.searchParams.delete("project");
+    window.history.pushState({}, "", url.pathname);
+
+    setTimeout(() => {
+      const el = document.getElementById("projects");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 50);
+  };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const queryProj = params.get("project");
+      if (queryProj) {
+        setSelectedProjectId(queryProj);
+      } else if (window.location.hash.startsWith("#project/")) {
+        setSelectedProjectId(window.location.hash.replace("#project/", ""));
+      } else {
+        setSelectedProjectId(null);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const selectedProject = selectedProjectId
+    ? getProjectById(selectedProjectId)
+    : null;
 
   return (
     <div className="min-h-screen bg-background text-text flex flex-col selection:bg-accent selection:text-background">
@@ -29,11 +86,20 @@ function MainPortfolio({ isDark, toggleDarkMode }) {
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Contact />
+        {selectedProject ? (
+          <ProjectDetail
+            project={selectedProject}
+            onBack={handleBackToProjects}
+          />
+        ) : (
+          <>
+            <Hero />
+            <About />
+            <Experience />
+            <Projects onSelectProject={handleSelectProject} />
+            <Contact />
+          </>
+        )}
       </main>
 
       {/* Footer */}
@@ -45,7 +111,9 @@ function MainPortfolio({ isDark, toggleDarkMode }) {
             </p>
 
             <div className="flex items-center gap-6">
-              <span>© {new Date().getFullYear()} Bagas Riatma Putera. {t.rights}</span>
+              <span>
+                © {new Date().getFullYear()} Bagas Riatma Putera. {t.rights}
+              </span>
               <button
                 onClick={scrollToTop}
                 className="p-2 rounded-lg border border-primary/20 bg-background/80 hover:border-accent hover:text-accent transition-all duration-200"
@@ -63,11 +131,11 @@ function MainPortfolio({ isDark, toggleDarkMode }) {
 }
 
 function PortfolioGate({ isDark, toggleDarkMode }) {
-  const { loading, error, refetch } = usePortfolioData();
+  const { loading, error, refetch, projects } = usePortfolioData();
   const { language } = useLanguage();
   const t = translations[language].common;
 
-  if (loading) {
+  if (loading && (!projects || projects.length === 0)) {
     return (
       <div className="min-h-screen bg-background text-text flex flex-col items-center justify-center gap-4">
         <Loader2 className="w-8 h-8 animate-spin text-accent" />
@@ -76,7 +144,7 @@ function PortfolioGate({ isDark, toggleDarkMode }) {
     );
   }
 
-  if (error) {
+  if (error && (!projects || projects.length === 0)) {
     return (
       <div className="min-h-screen bg-background text-text flex items-center justify-center p-6">
         <div className="w-full max-w-md rounded-3xl border border-primary/20 bg-primary/5 p-8 text-center shadow-lg">

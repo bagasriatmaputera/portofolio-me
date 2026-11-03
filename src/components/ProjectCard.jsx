@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star, ArrowRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
 
 function ProjectCard({
+  id,
   title,
   description,
   image,
@@ -17,6 +18,7 @@ function ProjectCard({
   is_live = false,
   is_repo = false,
   index = 0,
+  onSelectProject,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const { language } = useLanguage();
@@ -46,7 +48,10 @@ function ProjectCard({
       className="group flex flex-col rounded-2xl overflow-hidden bg-primary/5 hover:bg-primary/10 border border-primary/15 hover:border-accent/40 transition-all duration-300 hover:shadow-2xl relative"
     >
       {/* Project Image & GIF Hover Preview */}
-      <div className="relative aspect-video w-full overflow-hidden bg-primary/10 border-b border-primary/10">
+      <div
+        onClick={() => onSelectProject?.(id)}
+        className="relative aspect-video w-full overflow-hidden bg-primary/10 border-b border-primary/10 cursor-pointer"
+      >
         {/* Static Image */}
         <img
           src={image}
@@ -103,11 +108,14 @@ function ProjectCard({
 
       {/* Card Content */}
       <div className="flex flex-col flex-1 p-6 sm:p-7">
-        <h3 className="text-xl sm:text-2xl font-bold text-text group-hover:text-accent transition-colors">
+        <h3
+          onClick={() => onSelectProject?.(id)}
+          className="text-xl sm:text-2xl font-bold text-text group-hover:text-accent transition-colors cursor-pointer"
+        >
           {currentTitle}
         </h3>
 
-        <p className="mt-2.5 text-sm sm:text-base text-text/75 leading-relaxed flex-1">
+        <p className="mt-2.5 text-sm sm:text-base text-text/75 leading-relaxed flex-1 line-clamp-3">
           {currentDescription}
         </p>
 
@@ -126,50 +134,44 @@ function ProjectCard({
         )}
 
         {/* Links / Actions */}
-        <div className="mt-6 pt-5 border-t border-primary/10 flex items-center gap-3">
-          {is_live && liveUrl && liveUrl !== "#" ? (
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl bg-primary text-background hover:bg-accent hover:shadow-md active:scale-95 transition-all duration-200"
-            >
-              <span>{t.liveDemo}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          ) : (
-            <button
-              type="button"
-              disabled
-              title={t.liveDemoDisabled}
-              className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl bg-primary/15 text-text/40 border border-primary/10 cursor-not-allowed select-none opacity-60"
-            >
-              <span>{t.liveDemo}</span>
-              <ExternalLink className="w-3.5 h-3.5 opacity-40" />
-            </button>
-          )}
+        <div className="mt-6 pt-5 border-t border-primary/10 flex flex-wrap items-center justify-between gap-3">
+          {/* View Details Button */}
+          <button
+            type="button"
+            onClick={() => onSelectProject?.(id)}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2.5 rounded-xl bg-accent text-background hover:bg-primary transition-all duration-200 active:scale-95 shadow-sm"
+          >
+            <span>{t.viewDetails}</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
 
-          {is_repo && repoUrl && repoUrl !== "#" ? (
-            <a
-              href={repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl border border-primary/25 hover:border-accent text-text hover:text-accent hover:bg-primary/5 active:scale-95 transition-all duration-200"
-            >
-              <FaGithub className="w-3.5 h-3.5" />
-              <span>{t.sourceCode}</span>
-            </a>
-          ) : (
-            <button
-              type="button"
-              disabled
-              title={t.sourceCodeDisabled}
-              className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl border border-primary/10 bg-primary/5 text-text/40 cursor-not-allowed select-none opacity-60 transition-all"
-            >
-              <FaGithub className="w-3.5 h-3.5 opacity-40" />
-              <span>{t.sourceCode}</span>
-            </button>
-          )}
+          <div className="flex items-center gap-2">
+            {is_live && liveUrl && liveUrl !== "#" ? (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={t.liveDemo}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-xl bg-primary text-background hover:bg-accent transition-all duration-200"
+              >
+                <span>{t.liveDemo}</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            ) : null}
+
+            {is_repo && repoUrl && repoUrl !== "#" ? (
+              <a
+                href={repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={t.sourceCode}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-xl border border-primary/25 hover:border-accent text-text hover:text-accent hover:bg-primary/5 transition-all duration-200"
+              >
+                <FaGithub className="w-3.5 h-3.5" />
+                <span>{t.sourceCode}</span>
+              </a>
+            ) : null}
+          </div>
         </div>
       </div>
     </motion.div>
