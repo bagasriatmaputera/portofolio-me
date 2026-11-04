@@ -252,6 +252,44 @@ function Projects() {
 export default Projects;
 ```
 
+## 🐳 Deployment Menggunakan Docker
+
+Proyek ini telah dikonfigurasi dengan multi-stage build (Node Alpine untuk build bundle dan Nginx Alpine untuk serving).
+
+### 1. Menggunakan Docker Compose (Direkomendasikan)
+
+Salin environment example (jika diperlukan custom backend API):
+```bash
+cp .env.example .env
+```
+
+Jalankan container di background:
+```bash
+docker-compose up -d --build
+```
+
+Aplikasi dapat diakses di: [http://localhost:3004](http://localhost:3004) atau via Reverse Proxy host.
+
+Untuk mematikan container:
+```bash
+docker-compose down
+```
+
+### 2. Menggunakan Docker CLI Manual
+
+**Build Image:**
+```bash
+docker build -t portfolio-me:latest .
+```
+
+**Run Container:**
+```bash
+docker run -d -p 127.0.0.1:3004:80 --name portfolio-me portfolio-me:latest
+```
+```bash
+docker run -d -p 3000:80 --name portfolio-me portfolio-me:latest
+```
+
 ## 📄 Lisensi
 
 Bebas digunakan dan dimodifikasi untuk keperluan pribadi.

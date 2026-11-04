@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000/api}
+    container_name: portfolio-me
+    restart: unless-stopped
+    ports:
+      # Menggunakan port 3004 di localhost VPS (diteruskan oleh reverse proxy Nginx/Caddy)
+      - "${HOST_IP:-127.0.0.1}:${PORT:-3004}:80"
