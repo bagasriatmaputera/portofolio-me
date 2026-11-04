@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { ArrowDown, ArrowUpRight, FileDown, Mail } from "lucide-react";
+import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa6";
 import { useLanguage } from "../context/LanguageContext";
 import { usePortfolioData } from "../context/PortfolioDataContext";
 import { translations } from "../data/translations";
@@ -99,6 +99,18 @@ function Hero() {
                 {t.ctaContact}
                 <ArrowUpRight className="w-4 h-4" />
               </a>
+              {profile?.resumeUrl && profile.resumeUrl !== "#" && (
+                <a
+                  href={profile.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-accent/40 bg-accent/10 hover:bg-accent hover:text-background text-accent font-semibold text-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                >
+                  <FileDown className="w-4 h-4" />
+                  {t.ctaResume}
+                </a>
+              )}
             </motion.div>
 
             {/* Social Links */}
@@ -130,6 +142,30 @@ function Hero() {
                   title={t.ariaLinkedin}
                 >
                   <FaLinkedin className="w-5 h-5" />
+                </a>
+              )}
+              {socials.instagram && (
+                <a
+                  href={socials.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-xl border border-primary/20 hover:border-accent hover:text-accent hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-200"
+                  aria-label={t.ariaInstagram}
+                  title={t.ariaInstagram}
+                >
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+              )}
+              {socials.tiktok && (
+                <a
+                  href={socials.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 rounded-xl border border-primary/20 hover:border-accent hover:text-accent hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-200"
+                  aria-label={t.ariaTiktok}
+                  title={t.ariaTiktok}
+                >
+                  <FaTiktok className="w-5 h-5" />
                 </a>
               )}
               {socials.email && (

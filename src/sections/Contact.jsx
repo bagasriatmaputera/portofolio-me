@@ -11,7 +11,7 @@ import {
   MessageSquare,
   Loader2,
 } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa6";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
 import { environment } from "../../environment/environment";
@@ -165,6 +165,28 @@ function Contact() {
                     aria-label="LinkedIn"
                   >
                     <FaLinkedin className="w-5 h-5" />
+                  </a>
+                )}
+                {socials.instagram && (
+                  <a
+                    href={socials.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2.5 rounded-xl border border-primary/20 dark:border-primary/30 bg-background/80 dark:bg-black/40 text-text/80 dark:text-text hover:border-accent hover:text-accent dark:hover:text-accent hover:scale-105 active:scale-95 transition-all duration-200"
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="w-5 h-5" />
+                  </a>
+                )}
+                {socials.tiktok && (
+                  <a
+                    href={socials.tiktok}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2.5 rounded-xl border border-primary/20 dark:border-primary/30 bg-background/80 dark:bg-black/40 text-text/80 dark:text-text hover:border-accent hover:text-accent dark:hover:text-accent hover:scale-105 active:scale-95 transition-all duration-200"
+                    aria-label="TikTok"
+                  >
+                    <FaTiktok className="w-5 h-5" />
                   </a>
                 )}
               </div>

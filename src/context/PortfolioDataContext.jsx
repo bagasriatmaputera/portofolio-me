@@ -77,6 +77,8 @@ function mapProfile(profile) {
       github: profile.socials?.github ?? "",
       linkedin: profile.socials?.linkedin ?? "",
       email: profile.socials?.email ?? "",
+      instagram: profile.socials?.instagram ?? "",
+      tiktok: profile.socials?.tiktok ?? "",
     },
   };
 }
